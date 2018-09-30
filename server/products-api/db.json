@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Thien Quan Tu Phuc",
+      "price": 100000,
+      "status": true
+    },
+    {
+      "id": 2
+    }
+  ]
+}

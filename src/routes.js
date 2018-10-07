@@ -5,12 +5,12 @@ const routes = [
     {
         path : '/',
         exact : true,
-        main : () => <HomePage/>
+        main : () => <HomePage />
     },
     {
-        path : '/',
+        path : '',
         exact : false,
-        main : () => <NotFoundPage/>
+        main : () => <NotFoundPage />
     }
 ];
 

@@ -1,13 +1,22 @@
 {
   "products": [
     {
-      "id": 1,
       "name": "Thien Quan Tu Phuc",
-      "price": 100000,
-      "status": true
+      "price": "100000",
+      "status": "true",
+      "id": 1
     },
     {
+      "name": "Ma Dao To Su",
+      "price": "200000",
+      "status": "true",
       "id": 2
+    },
+    {
+      "name": "He Thong Tu Cuu Cua Nhan Vat Phan Dien",
+      "price": "300000",
+      "status": "false",
+      "id": 3
     }
   ]
 }

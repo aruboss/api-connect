@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import callApi from './../../utils/apiCaller';
+import { Link } from 'react-router-dom';
 
 class ProductActionPage extends Component {
 
@@ -18,46 +19,47 @@ class ProductActionPage extends Component {
         var name = target.name;
         var value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            [name] : value
+            [name]: value
         });
     }
 
     onSave = (e) => {
         e.preventDefault();
-        var {txtName, txtPrice,chkbStatus } = this.state;
-        callApi('products', 'POST',{
-            name : txtName,
-            price : txtPrice,
-            status : chkbStatus
+        var { txtName, txtPrice, chkbStatus } = this.state;
+        var { history } = this.props;
+        callApi('products', 'POST', {
+            name: txtName,
+            price: txtPrice,
+            status: chkbStatus
         }).then(res => {
-            console.log(res);
+            history.goBack();//quay lai trang trc do
         });
     }
 
     render() {
-        var {txtName, txtPrice, chkbStatus } = this.state;
+        var { txtName, txtPrice, chkbStatus } = this.state;
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-                <form onSubmit={this.onSave}> 
+                <form onSubmit={this.onSave}>
                     <div className="form-group">
                         <label>Tên Sản Phẩm: </label>
-                        <input 
-                            type="text" 
-                            className="form-control" 
+                        <input
+                            type="text"
+                            className="form-control"
                             name="txtName"
-                            value= {txtName}
-                            onChange = {this.onChange}
+                            value={txtName}
+                            onChange={this.onChange}
                         />
                     </div>
                     <div className="form-group">
                         <label>Giá: </label>
-                        <input 
-                            type="number" 
-                            className="form-control" 
-                            name="txtPrice" 
-                            value= {txtPrice}
-                            onChange = {this.onChange}
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="txtPrice"
+                            value={txtPrice}
+                            onChange={this.onChange}
                         />
                     </div>
                     <div className="form-group">
@@ -65,16 +67,18 @@ class ProductActionPage extends Component {
                     </div>
                     <div className="checkbox">
                         <label>
-                            <input 
-                                type="checkbox" 
-                                name="chkbStatus" 
+                            <input
+                                type="checkbox"
+                                name="chkbStatus"
                                 value={chkbStatus}
                                 onChange={this.onChange}
                             />
                             Còn Hàng
                         </label>
                     </div>
-
+                    <Link to="/product-list" className="btn btn-danger mr-10">
+                        Trở Lại
+                    </Link>
                     <button type="submit" className="btn btn-primary">Lưu Lại</button>
                 </form>
 

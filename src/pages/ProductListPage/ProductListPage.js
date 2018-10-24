@@ -7,15 +7,15 @@ import { Link } from 'react-router-dom';
 
 class ProductListPage extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            products : []
+            products: []
         };
     }
     //componentWillMount kết nối một ứng dụng React với một ứng dụng bên ngoài(web API, javascript framework),
-    componentWillMount(){
-        callApi('products','GET', null).then(res => {
+    componentWillMount() {
+        callApi('products', 'GET', null).then(res => {
             this.setState({
                 products: res.data
             });
@@ -23,7 +23,7 @@ class ProductListPage extends Component {
     }
 
     render() {
-        var { products }= this.state;
+        var { products } = this.state;
         return (
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <Link to="/product/add" className="btn btn-info mb-10">

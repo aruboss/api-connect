@@ -14,6 +14,14 @@ class ProductActionPage extends Component {
         };
     }
 
+    componentDidMount(){
+        var { match } = this.props;
+        if(match){
+            var id = match.params.id;
+            console.log(id);
+        }
+    }
+
     onChange = (e) => {
         var target = e.target;
         var name = target.name;

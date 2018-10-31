@@ -88,6 +88,7 @@ class ProductActionPage extends Component {
                                 name="chkbStatus"
                                 value={chkbStatus}
                                 onChange={this.onChange}
+                                checked={chkbStatus}
                             />
                             Còn Hàng
                         </label>
